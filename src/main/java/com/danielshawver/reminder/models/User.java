@@ -1,15 +1,20 @@
 package com.danielshawver.reminder.models;
 
-import org.springframework.data.annotation.Id;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
 public class User {
 
     @Id
-    private long id;
+    private Long id;
 
-    private String name;
+//    private String name;
+//
+//    private String defaultEmail;
 
-    private String defaultEmail;
-
+    public Long getId() {
+        return id;
+    }
 }
 

@@ -1,5 +1,0 @@
--- INSERT INTO user VALUES (NULL, 'Jane Down', 'jane.down.default@gmail.com');
--- INSERT INTO user VALUES (NULL, 'John Read', 'john.read.default@gmail.com');
---
--- INSERT INTO reminder VALUES (NULL, 'jane.down@gmail.com', 'Take out the trash Jane!', 1);
--- INSERT INTO reminder VALUES (NULL, 'john.read@gmail.com', 'Wash the dog John!', 2);
