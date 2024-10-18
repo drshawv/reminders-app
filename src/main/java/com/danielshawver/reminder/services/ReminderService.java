@@ -1,5 +1,6 @@
 package com.danielshawver.reminder.services;
 
+import com.danielshawver.reminder.models.Customer;
 import com.danielshawver.reminder.models.Reminder;
 import com.danielshawver.reminder.repositories.ReminderRepository;
 import jakarta.transaction.Transactional;
@@ -15,9 +16,9 @@ public class ReminderService {
     }
 
     @Transactional
-    public void createReminder(String email, String message) {
+    public void createReminder(String email, String message, Customer customer) {
 
-        Reminder reminder = new Reminder(email, message);
+        Reminder reminder = new Reminder(email, message, customer);
 
         reminderRepository.save(reminder);
 

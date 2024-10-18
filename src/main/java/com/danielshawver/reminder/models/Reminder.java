@@ -1,9 +1,6 @@
 package com.danielshawver.reminder.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Reminder {
@@ -22,9 +19,10 @@ public class Reminder {
 
     private Reminder() {}
 
-    public Reminder(String email, String message) {
+    public Reminder(String email, String message, Customer customer) {
         this.email = email;
         this.message = message;
+        this.customer = customer;
     }
 
     public String getEmail() {
@@ -35,12 +33,17 @@ public class Reminder {
         return message;
     }
 
+    @ManyToOne
+    @JoinColumn(name="customerId")
+    private Customer customer;
+
     @Override
     public String toString() {
         return "Reminder{" +
                 "id=" + id +
                 ", email='" + email + '\'' +
                 ", message='" + message + '\'' +
+                ", customer='" + customer + '\'' +
                 '}';
     }
 }
