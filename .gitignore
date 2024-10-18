@@ -30,8 +30,5 @@ build/
 ### VS Code ###
 .vscode/
 
-# Ignore .mvn folder
-.mvn/
-
 # For now ignored application.properties, it has secrets that need to be managed better
 src/main/resources/application.properties
