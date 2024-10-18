@@ -1,0 +1,12 @@
+-- create table user (
+--      id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--      name VARCHAR(50) NOT NULL,
+--      default_email VARCHAR(50) NOT NULL
+-- );
+
+-- create table reminder (
+--       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+--       email VARCHAR(50) NOT NULL,
+--       message VARCHAR(50) NOT NULL,
+--       user_id INT NOT NULL FOREIGN KEY
+-- );

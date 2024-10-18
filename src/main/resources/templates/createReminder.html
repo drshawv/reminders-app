@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Reminder</title>
+</head>
+<body>
+<form action="/reminder" method="post">
+    Email: <input type="text" name="email" /><br />
+    Reminder Message: <input type="text" name="message" /><br />
+    <button type="submit">Create Reminder</button>
+</form>
+
+<!--<input type="hidden"-->
+<!--       th:name="${_csrf.parameterName}"-->
+<!--       th:value="${_csrf.token}" />-->
+</body>
+</html>
