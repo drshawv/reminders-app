@@ -14,49 +14,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ReminderControllerImpl implements ReminderController {
 
-    private final CustomerService customerService;
-
     private final ReminderService reminderService;
 
-    public ReminderControllerImpl(CustomerService customerService, ReminderService reminderService) {
-        this.customerService = customerService;
+    public ReminderControllerImpl(ReminderService reminderService) {
         this.reminderService = reminderService;
-    }
-
-    @Autowired
-    private ApplicationContext applicationContext;
-
-    public void printBeans() {
-        String[] beanNames = applicationContext.getBeanDefinitionNames();
-        for (String beanName : beanNames) {
-            System.out.println(beanName);
-        }
     }
 
     @Override
     public String home(Authentication authentication) {
-        System.out.println("home");
-
-        System.out.println(authentication.getName());
-
-        //printBeans();
 
         return "index.html";
     }
 
     @Override
     public String createReminderGet(){
-        System.out.println("createReminderGet");
         return "createReminder.html";
     }
 
     @Override
     public String createReminderPost(String email, String message){
-
-        System.out.println("email: " + email);
-        System.out.println("message: " + message);
-
-        System.out.println("createReminderPost");
 
         reminderService.createReminder(email, message);
 
