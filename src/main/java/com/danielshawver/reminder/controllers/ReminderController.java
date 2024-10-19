@@ -12,59 +12,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
-@Controller
-public class ReminderController {
-
-    private final CustomerService customerService;
-
-    private final ReminderService reminderService;
-
-    public ReminderController(CustomerService customerService, ReminderService reminderService) {
-        this.customerService = customerService;
-        this.reminderService = reminderService;
-    }
-
-    @Autowired
-    private ApplicationContext applicationContext;
-
-    public void printBeans() {
-        String[] beanNames = applicationContext.getBeanDefinitionNames();
-        for (String beanName : beanNames) {
-            System.out.println(beanName);
-        }
-    }
+public interface ReminderController {
 
     @GetMapping("/")
-    public String home(Authentication authentication) {
-        System.out.println("home");
-
-        System.out.println(authentication.getName());
-
-        //printBeans();
-
-        return "index.html";
-    }
+    public String home(Authentication authentication);
 
     @GetMapping("/reminder")
-    public String createReminderGet(){
-        System.out.println("createReminderGet");
-        return "createReminder.html";
-    }
+    public String createReminderGet();
 
     @PostMapping("/reminder")
     public String createReminderPost(@RequestParam String email,
-                                     @RequestParam String message){
-
-        System.out.println("email: " + email);
-        System.out.println("message: " + message);
-
-        System.out.println("createReminderPost");
-
-        List<Customer> customer = customerService.getOauthCustomer();
-
-        reminderService.createReminder(email, message, customer.get(0));
-
-        return "listReminders.html";
-    }
+                                     @RequestParam String message);
 }
