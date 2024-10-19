@@ -17,12 +17,12 @@ import java.util.Optional;
 public interface ReminderController {
 
     @GetMapping("/")
-    public String home(Authentication authentication);
+    String home(Authentication authentication);
 
     @GetMapping("/reminder")
-    public String createReminderGet();
+    String createReminderGet();
 
     @PostMapping("/reminder")
-    public String createReminderPost(@RequestParam String email,
-                                     @RequestParam String message);
+    String createReminderPost(@RequestParam String email,
+                              @RequestParam String message);
 }

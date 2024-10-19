@@ -6,13 +6,13 @@ import java.util.Optional;
 
 public interface CustomerService {
 
-    public boolean oauthCustomerExists();
+    boolean oauthCustomerExists();
 
-    public void createCustomer(String firstName, String lastName, String defaultEmail, String oauthUniqueId, String oauthServiceName);
+    void createCustomer(String firstName, String lastName, String defaultEmail, String oauthUniqueId, String oauthServiceName);
 
-    public Optional<Customer> getOauthCustomer();
+    Optional<Customer> getOauthCustomer();
 
-    public void createOAuthCustomer();
+    void createOAuthCustomer();
 
-    public void createOAuthCustomerIfNotExists();
+    void createOAuthCustomerIfNotExists();
 }

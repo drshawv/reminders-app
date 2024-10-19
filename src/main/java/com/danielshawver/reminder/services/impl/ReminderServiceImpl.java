@@ -1,5 +1,6 @@
 package com.danielshawver.reminder.services.impl;
 
+import com.danielshawver.reminder.exception.NoCustomerFoundException;
 import com.danielshawver.reminder.models.Customer;
 import com.danielshawver.reminder.models.Reminder;
 import com.danielshawver.reminder.repositories.ReminderRepository;
@@ -8,6 +9,7 @@ import com.danielshawver.reminder.services.ReminderService;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import javax.swing.undo.CannotUndoException;
 import java.util.Optional;
 
 @Service
@@ -26,11 +28,11 @@ public class ReminderServiceImpl implements ReminderService {
 
         Optional<Customer> customer = customerService.getOauthCustomer();
 
-        if (customer.isPresent()) {
-            Reminder reminder = new Reminder(email, message, customer.get());
-            reminderRepository.save(reminder);
+        if (!customer.isPresent()) {
+            throw new NoCustomerFoundException();
         }
 
-        System.out.println(reminderRepository.findAll());
+        Reminder reminder = new Reminder(email, message, customer.get());
+        reminderRepository.save(reminder);
     }
 }
